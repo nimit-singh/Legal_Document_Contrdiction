@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import json
+import joblib
 from io import BytesIO
 
 bytes = BytesIO()
