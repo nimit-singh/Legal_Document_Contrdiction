@@ -2,6 +2,7 @@ import streamlit as st
 import joblib
 import os
 import gdown
+import random
 
 MODEL_PATH = "legal_ANLI_model.joblib"
 VECTORIZER_PATH = "legal_ANLI_model_vectorizer.joblib"
