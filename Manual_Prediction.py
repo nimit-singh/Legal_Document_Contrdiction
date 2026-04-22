@@ -54,9 +54,40 @@ with st.expander("ℹ️ How this works"):
     """
     )
 st.markdown("---")
+samples = [
+    {
+        "premise": "A boy is playing cricket in the मैदान",
+        "hypothesis": "A boy is playing a sport"
+    },
+    {
+        "premise": "A woman is cooking food in the kitchen",
+        "hypothesis": "A woman is preparing a meal"
+    },
+    {
+        "premise": "The stock market crashed yesterday",
+        "hypothesis": "The economy is doing very well"
+    },
+    {
+        "premise": "Scientists discovered a new planet",
+        "hypothesis": "A new celestial body was found"
+    },
+]
+
+if "premise" not in st.session_state:
+    st.session_state.premise = ""
+
+if "hypothesis" not in st.session_state:
+    st.session_state.hypothesis = ""
+
+# Sample button
+if st.button("🧪 Try Sample"):
+    sample = random.choice(samples)
+    st.session_state.premise = sample["premise"]
+    st.session_state.hypothesis = sample["hypothesis"]
+
 # Inputs
-premise = st.text_area("Enter Premise")
-hypothesis = st.text_area("Enter Hypothesis")
+premise = st.text_area("Enter Premise",key="premise")
+hypothesis = st.text_area("Enter Hypothesis",key="hypothesis")
 
 # Button
 if st.button("Predict"):
